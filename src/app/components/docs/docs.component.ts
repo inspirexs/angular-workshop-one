@@ -16,7 +16,7 @@ export class DocsComponent implements OnInit {
   constructor(private mercuryClientService: MercuryClientService) { }
 
   ngOnInit(): void {
-    console.log('component loaded');
+
   }
 
   test(): void{
