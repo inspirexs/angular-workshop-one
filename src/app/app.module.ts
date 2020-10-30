@@ -17,6 +17,8 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatMenuModule } from '@angular/material/menu';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HttpClientModule } from '@angular/common/http';
+import { MatInputModule } from '@angular/material/input';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,8 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
 
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
 
     MatToolbarModule,
     MatSidenavModule,
@@ -40,6 +44,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatIconModule,
     MatMenuModule,
     MatDividerModule,
+    MatInputModule,
+
     FlexLayoutModule
   ],
   providers: [],
