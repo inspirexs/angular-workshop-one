@@ -19,9 +19,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ContentInnerComponent } from './components/content/content-inner/content-inner.component';
-import { DocumentModule } from 'src/modules/document/document.module';
 import { RouterModule } from '@angular/router';
 import { appRoutes } from './app.route';
+import { Subroute1Component } from './components/content/content-subroutes/subroute1/subroute1.component';
+import { Subroute2Component } from './components/content/content-subroutes/subroute2/subroute2.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,9 @@ import { appRoutes } from './app.route';
     LoginComponent,
     HeaderComponent,
     ContentComponent,
-    ContentInnerComponent
+    ContentInnerComponent,
+    Subroute1Component,
+    Subroute2Component
   ],
   imports: [
     BrowserModule,
