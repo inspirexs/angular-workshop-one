@@ -5,6 +5,8 @@ import { DocsResultComponent } from './docs/docs-result/docs-result.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { documentRoutes } from './document.route';
 
 
 
@@ -20,10 +22,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatInputModule,
 
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+
+    RouterModule.forChild(documentRoutes)
   ],
-  exports: [
-    DocsComponent
-  ]
+  exports: [ ]
 })
 export class DocumentModule { }
