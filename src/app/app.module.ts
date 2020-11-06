@@ -19,6 +19,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { HttpClientModule } from '@angular/common/http';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ContentInnerComponent } from './components/content/content-inner/content-inner.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     LoginComponent,
     HeaderComponent,
     ContentComponent,
-    DocsComponent
+    DocsComponent,
+    ContentInnerComponent
   ],
   imports: [
     BrowserModule,
