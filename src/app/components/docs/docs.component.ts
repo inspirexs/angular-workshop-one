@@ -3,6 +3,7 @@ import { ITS_JUST_ANGULAR } from '@angular/core/src/r3_symbols';
 import { FormBuilder, FormGroup, NgModel, Validators } from '@angular/forms';
 import { Traveller } from 'src/app/models/traveller';
 import { MercuryClientService } from 'src/app/services/mercury-client.service';
+import { Document } from 'src/app/models/document';
 
 @Component({
   selector: 'app-docs',
@@ -31,7 +32,7 @@ export class DocsComponent implements OnInit {
 
   getDefaultTraveller(): void{
 
-    this.mercuryClientService.getTraveller().subscribe(data => {
+    this.mercuryClientService.getTraveller('PASSPORT', 'G85471', 'AUT').subscribe(data => {
       console.log(data);
       this.traveller = data;
     }, error => {
@@ -41,11 +42,21 @@ export class DocsComponent implements OnInit {
   }
 
   clearTraveller(): void{
-
+    this.traveller = null;
   }
 
   submitForm(): void{
     if(this.documentForm.valid){
+      const document: Document = Object.assign({}, this.documentForm.value);
+
+      this.mercuryClientService.getTraveller(document.documentType, document.documentNumber, document.documentCountry)
+      .subscribe(data => {
+        console.log(data);
+        this.traveller = data;
+      }, error => {
+        console.log(error);
+        alert('Ups Error!');
+      });
       console.log('SUBMIT FORM Valid');
     }
     else{

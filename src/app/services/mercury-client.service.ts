@@ -14,11 +14,11 @@ export class MercuryClientService {
     alert('WORKS');
   }
 
-  getTraveller(): Observable<Traveller>{
+  getTraveller(documentType: string, documentNumber: string, documentCountry: string): Observable<Traveller>{
     const httpHeaders: HttpHeaders = new HttpHeaders({
       Authorization: 'mobile_traveller_app_token'
     });
 
-    return this.httpClient.get<Traveller>('http://l0d2-mappsam-01.corp.grh.lab:8081/api/Globalblue/3.0/Members/documentType=PASSPORT&documentNumber=G85471&documentCountry=AUT', { headers: httpHeaders} );
+    return this.httpClient.get<Traveller>('http://l0d2-mappsam-01.corp.grh.lab:8081/api/Globalblue/3.0/Members/documentType=' + documentType + '&documentNumber=' + documentNumber + '&documentCountry=' + documentCountry, { headers: httpHeaders} );
   }
 }
