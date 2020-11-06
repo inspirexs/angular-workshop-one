@@ -51,9 +51,7 @@ import { appRoutes } from './app.route';
 
     FlexLayoutModule,
 
-    RouterModule.forRoot(appRoutes),
-
-    DocumentModule
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]
