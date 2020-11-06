@@ -20,6 +20,8 @@ import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ContentInnerComponent } from './components/content/content-inner/content-inner.component';
 import { DocumentModule } from 'src/modules/document/document.module';
+import { RouterModule } from '@angular/router';
+import { appRoutes } from './app.route';
 
 @NgModule({
   declarations: [
@@ -48,6 +50,8 @@ import { DocumentModule } from 'src/modules/document/document.module';
     MatInputModule,
 
     FlexLayoutModule,
+
+    RouterModule.forRoot(appRoutes),
 
     DocumentModule
   ],
