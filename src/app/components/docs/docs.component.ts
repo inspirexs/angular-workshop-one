@@ -4,6 +4,8 @@ import { FormBuilder, FormGroup, NgModel, Validators } from '@angular/forms';
 import { Traveller } from 'src/app/models/traveller';
 import { MercuryClientService } from 'src/app/services/mercury-client.service';
 import { Document } from 'src/app/models/document';
+import { DocsResultComponent } from './docs-result/docs-result.component';
+import { ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-docs',
@@ -11,8 +13,8 @@ import { Document } from 'src/app/models/document';
   styleUrls: ['./docs.component.css']
 })
 export class DocsComponent implements OnInit {
+  @ViewChild(DocsResultComponent) private docsResult: DocsResultComponent;
 
-  traveller: Traveller;
   documentForm: FormGroup;
 
   constructor(private mercuryClientService: MercuryClientService,
@@ -34,7 +36,7 @@ export class DocsComponent implements OnInit {
 
     this.mercuryClientService.getTraveller('PASSPORT', 'G85471', 'AUT').subscribe(data => {
       console.log(data);
-      this.traveller = data;
+      this.docsResult.setTraveller(data);
     }, error => {
       console.log(error);
     });
@@ -42,7 +44,7 @@ export class DocsComponent implements OnInit {
   }
 
   clearTraveller(): void{
-    this.traveller = null;
+    this.docsResult.setTraveller(null);
   }
 
   submitForm(): void{
@@ -52,7 +54,7 @@ export class DocsComponent implements OnInit {
       this.mercuryClientService.getTraveller(document.documentType, document.documentNumber, document.documentCountry)
       .subscribe(data => {
         console.log(data);
-        this.traveller = data;
+        this.docsResult.setTraveller(data);
       }, error => {
         console.log(error);
         alert('Ups Error!');
