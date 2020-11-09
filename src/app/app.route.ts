@@ -12,5 +12,6 @@ export const appRoutes: Routes = [
     {path: 'subroute2/:idx', component: Subroute2Component },
   ] },
   { path: 'document', canActivate: [AuthGuard],  loadChildren: () => import('../modules/document/document.module').then(m => m.DocumentModule) },
+  { path: 'my-account', canActivate: [AuthGuard],  loadChildren: () => import('../modules/my-account/my-account.module').then(m => m.MyAccountModule) },
   { path: '**', redirectTo: 'login', pathMatch: 'full' },
 ];
