@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MessageService } from 'src/modules/shared/services/message.service';
 
 @Component({
   selector: 'app-subroute1',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./subroute1.component.css']
 })
 export class Subroute1Component implements OnInit {
+  message: string;
 
-  constructor() { }
+  constructor(private messageService: MessageService) { }
 
   ngOnInit(): void {
+  }
+
+  sendMessage(): void{
+    this.messageService.sendMessage(this.message);
   }
 
 }

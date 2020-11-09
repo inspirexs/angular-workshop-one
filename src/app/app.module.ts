@@ -7,22 +7,12 @@ import { LoginComponent } from './components/login/login.component';
 import { HeaderComponent } from './components/header/header.component';
 import { ContentComponent } from './components/content/content.component';
 
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatListModule } from '@angular/material/list';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
-import { MatDividerModule } from '@angular/material/divider';
-import { MatMenuModule } from '@angular/material/menu';
-import { FlexLayoutModule } from '@angular/flex-layout';
-import { HttpClientModule } from '@angular/common/http';
-import { MatInputModule } from '@angular/material/input';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ContentInnerComponent } from './components/content/content-inner/content-inner.component';
 import { RouterModule } from '@angular/router';
 import { appRoutes } from './app.route';
 import { Subroute1Component } from './components/content/content-subroutes/subroute1/subroute1.component';
 import { Subroute2Component } from './components/content/content-subroutes/subroute2/subroute2.component';
+import { SharedModule } from 'src/modules/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -39,20 +29,7 @@ import { Subroute2Component } from './components/content/content-subroutes/subro
     BrowserModule,
     BrowserAnimationsModule,
 
-    HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule,
-
-    MatToolbarModule,
-    MatSidenavModule,
-    MatListModule,
-    MatButtonModule,
-    MatIconModule,
-    MatMenuModule,
-    MatDividerModule,
-    MatInputModule,
-
-    FlexLayoutModule,
+    SharedModule,
 
     RouterModule.forRoot(appRoutes)
   ],

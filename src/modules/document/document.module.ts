@@ -2,11 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DocsComponent } from './docs/docs.component';
 import { DocsResultComponent } from './docs/docs-result/docs-result.component';
-import { MatButtonModule } from '@angular/material/button';
-import { MatInputModule } from '@angular/material/input';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { documentRoutes } from './document.route';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -18,11 +16,7 @@ import { documentRoutes } from './document.route';
   imports: [
     CommonModule,
 
-    MatButtonModule,
-    MatInputModule,
-
-    FormsModule,
-    ReactiveFormsModule,
+    SharedModule,
 
     RouterModule.forChild(documentRoutes)
   ],

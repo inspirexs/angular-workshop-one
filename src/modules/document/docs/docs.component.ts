@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ITS_JUST_ANGULAR } from '@angular/core/src/r3_symbols';
 import { FormBuilder, FormGroup, NgModel, Validators } from '@angular/forms';
-import { Traveller } from 'src/app/models/traveller';
-import { MercuryClientService } from 'src/app/services/mercury-client.service';
-import { Document } from 'src/app/models/document';
+import { MercuryClientService } from 'src/modules/shared/services/mercury-client.service';
+import { Document } from 'src/modules/shared/models/document';
 import { DocsResultComponent } from './docs-result/docs-result.component';
 import { ViewChild } from '@angular/core';
+import { MessageService } from 'src/modules/shared/services/message.service';
 
 @Component({
   selector: 'app-docs',
@@ -18,7 +17,8 @@ export class DocsComponent implements OnInit {
   documentForm: FormGroup;
 
   constructor(private mercuryClientService: MercuryClientService,
-              private fb: FormBuilder) { }
+              private fb: FormBuilder,
+              private messageService: MessageService) { }
 
   ngOnInit(): void {
     this.documentForm = this.fb.group({
@@ -37,6 +37,7 @@ export class DocsComponent implements OnInit {
     this.mercuryClientService.getTraveller('PASSPORT', 'G85471', 'AUT').subscribe(data => {
       console.log(data);
       this.docsResult.setTraveller(data);
+      this.messageService.sendMessage(data.emailAddress);
     }, error => {
       console.log(error);
     });
